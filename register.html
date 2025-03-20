@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<body bgcolor="skyblue">
+        <link rel="stylesheet" type="text/css" href="register.css">
+
+		<form name="register" action="register.jsp" onsubmit="return validateForm()">
+			<center>
+			    <center><h1>Patient Registration Form</h1></center>
+				Enter Patient Id:<input type="number" name="pid" id="pid" required><br>
+				Enter Patient name:<input type="text" name="pname" id="pname" required><br>
+				Enter patient Username:<input type="email" name="puname" id="puname" required><br>
+				Enter patient password:<input type="password" name="ppwd" id="ppwd" required><br>
+				Choose the Gender:<input type="radio" name="pgender" value="male" required>Male
+				<input type="radio" name="pgender" value="female" required>Female<br>
+				Enter Address:<input type="text" name="paddr" id="paddr" required><br>
+				Enter Patient Phno:<input type="number" name="pphno" id="pphno" required><br>
+				Enter Patient disease:<input type="text" name="pdis"id="pdis" required><br>
+				
+				<input type="submit"> <input type="reset">
+				<p id="error" style="color:red"></p>
+				<h4 > if you are alredy login <a href="login.html">Login</a></h4>
+			</center>
+		</form>
+
+		<script>
+			function validateForm() {
+				var pid = document.getElementById("pid").value;
+				var pname = document.getElementById("pname").value;
+				var puname = document.getElementById("puname").value;
+				var ppwd = document.getElementById("ppwd").value;
+				var pgender = document.querySelector('input[name="pgender"]:checked');
+				var paddr = document.getElementById("paddr").value;
+				var pphno = document.getElementById("pphno").value;
+				var pdis = document.getElementById("pdis").value;
+				if (!pid || !pname || !puname || !ppwd || !pgender || !paddr|| !pphno || !pdis) {
+					document.getElementById("error").innerText = "Please fill all details.";
+					return false;
+				} else {
+					return true;
+				}
+			}
+		</script>
+	</body>
+</html>
